@@ -1,1 +1,551 @@
-www.linkedin.com/in/hmonowar
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Monowar Hossain - Resume & Cover Letter</title>
+    <style>
+        :root {
+            --bg-body: #F7FAFC;
+            --page-bg: #FFFFFF;
+            --text-main: #2D3748;
+            --text-muted: #4A5568;
+            --primary: #1A365D;
+            --secondary: #2B6CB0;
+            --accent-blue: #3182CE;
+            --sidebar-bg: #1A202C;
+            --sidebar-text: #EDF2F7;
+            --sidebar-muted: #CBD5E0;
+            --sidebar-border: #4A5568;
+            --badge-bg: #2D3748;
+            --border-color: #E2E8F0;
+            --cl-recipient-bg: #EDF2F7;
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #121212;
+            --page-bg: #1E1E1E;
+            --text-main: #E2E8F0;
+            --text-muted: #CBD5E0;
+            --primary: #90CDF4;
+            --secondary: #63B3ED;
+            --accent-blue: #4299E1;
+            --sidebar-bg: #111418;
+            --sidebar-text: #F7FAFC;
+            --sidebar-muted: #A0AEC0;
+            --sidebar-border: #2D3748;
+            --badge-bg: #262D37;
+            --border-color: #2D3748;
+            --cl-recipient-bg: #2A3441;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 11pt;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+            margin: 0;
+            padding: 40px 0;
+            -webkit-print-color-adjust: exact;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Floating Controls Bar */
+        .controls-bar {
+            position: fixed;
+            top: 15px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+        }
+
+        .control-btn {
+            background-color: var(--primary);
+            color: #FFFFFF;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 10pt;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        .control-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            background-color: var(--page-bg);
+            position: relative;
+            margin: 0 auto 30px auto;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            page-break-after: always;
+            overflow: hidden;
+            transition: background-color 0.3s ease;
+        }
+
+        .page-last {
+            page-break-after: avoid;
+        }
+
+        /* Top Accent Bar */
+        .header-bar {
+            height: 12px;
+            background: linear-gradient(90deg, #1A365D 0%, #2B6CB0 100%);
+        }
+
+        /* Sidebar & Main Layout using Table for Layout Stability */
+        .layout-table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        .sidebar {
+            width: 32%;
+            background-color: var(--sidebar-bg);
+            color: var(--sidebar-text);
+            padding: 35px 20px 40px 25px;
+            vertical-align: top;
+            transition: background-color 0.3s ease;
+            font-size: 11pt;
+        }
+
+        .main-content {
+            width: 68%;
+            background-color: var(--page-bg);
+            padding: 35px 30px 40px 30px;
+            vertical-align: top;
+            font-size: 11pt;
+        }
+
+        /* Profile Header in Main */
+        .name-title {
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+
+        .name-title h1 {
+            font-size: 24pt;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 0 0 6px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .name-title .subtitle {
+            font-size: 12pt;
+            font-weight: bold;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin: 0;
+        }
+
+        /* Sidebar Elements */
+        .sidebar-section {
+            margin-bottom: 28px;
+        }
+
+        .sidebar-title {
+            font-size: 12pt;
+            font-weight: bold;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            border-bottom: 1px solid var(--sidebar-border);
+            padding-bottom: 6px;
+            margin-bottom: 14px;
+        }
+
+        .contact-item {
+            font-size: 11pt;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            color: var(--sidebar-muted);
+            word-wrap: break-word;
+        }
+
+        .contact-item strong {
+            color: var(--sidebar-text);
+            display: block;
+            font-size: 11pt;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
+
+        .badge-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .badge-list li {
+            background-color: var(--badge-bg);
+            color: var(--sidebar-text);
+            font-size: 11pt;
+            padding: 6px 10px;
+            margin-bottom: 6px;
+            border-radius: 4px;
+            border-left: 3px solid var(--secondary);
+        }
+
+        .lang-item {
+            margin-bottom: 8px;
+            font-size: 11pt;
+            color: var(--sidebar-muted);
+        }
+
+        .lang-name {
+            font-weight: bold;
+            color: var(--sidebar-text);
+        }
+
+        /* Main Content Elements */
+        .section-title {
+            font-size: 12pt;
+            font-weight: bold;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--accent-blue);
+            padding-bottom: 5px;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .profile-text {
+            font-size: 11pt;
+            line-height: 1.6;
+            color: var(--text-muted);
+            margin-bottom: 22px;
+            text-align: justify;
+        }
+
+        .job-block {
+            margin-bottom: 20px;
+        }
+
+        .job-header-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 6px;
+        }
+
+        .job-role {
+            font-size: 11pt;
+            font-weight: bold;
+            color: var(--secondary);
+        }
+
+        .job-date {
+            font-size: 11pt;
+            font-weight: bold;
+            color: var(--text-muted);
+            text-align: right;
+        }
+
+        .job-company {
+            font-size: 11pt;
+            font-weight: bold;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        ul.job-bullets {
+            margin: 0 0 0 15px;
+            padding: 0;
+        }
+
+        ul.job-bullets li {
+            font-size: 11pt;
+            line-height: 1.5;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+        }
+
+        /* Cover Letter Specific Styles */
+        .cover-letter-container {
+            padding: 45px 50px;
+        }
+
+        .cl-header-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        .cl-recipient {
+            font-size: 11pt;
+            line-height: 1.5;
+            color: var(--text-main);
+            margin-bottom: 25px;
+            background-color: var(--cl-recipient-bg);
+            padding: 15px 20px;
+            border-left: 4px solid var(--accent-blue);
+            border-radius: 0 4px 4px 0;
+        }
+
+        .cl-subject {
+            font-size: 12pt;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cl-body {
+            font-size: 11pt;
+            line-height: 1.7;
+            color: var(--text-muted);
+        }
+
+        .cl-body p {
+            margin-bottom: 14px;
+            text-align: justify;
+        }
+
+        .cl-signature {
+            margin-top: 30px;
+            font-size: 11pt;
+            color: var(--text-main);
+        }
+
+        .cl-signature-name {
+            font-size: 12pt;
+            font-weight: bold;
+            color: var(--primary);
+            margin-top: 5px;
+        }
+
+        /* Print Settings */
+        @media print {
+            .controls-bar {
+                display: none !important;
+            }
+            body {
+                background-color: #FFFFFF !important;
+                padding: 0;
+            }
+            .page {
+                box-shadow: none;
+                margin: 0;
+                width: 100%;
+                min-height: 100vh;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Action Controls (Print & Theme Toggle) -->
+    <div class="controls-bar">
+        <button class="control-btn" onclick="toggleTheme()">🌓 Toggle Dark/Light</button>
+        <button class="control-btn" onclick="window.print()">🖨️ Print CV</button>
+    </div>
+
+    <!-- PAGE 1: COVER LETTER -->
+    <div class="page">
+        <div class="header-bar"></div>
+        <div class="cover-letter-container">
+            <table class="cl-header-table">
+                <tr>
+                    <td>
+                        <h1 style="font-size: 22pt; font-weight: bold; color: var(--primary); margin: 0;">MONOWAR HOSSAIN</h1>
+                        <p style="font-size: 12pt; color: var(--secondary); font-weight: bold; margin: 4px 0 0 0; text-transform: uppercase; letter-spacing: 1px;">Equipment Operator / Security Professional</p>
+                    </td>
+                    <td style="text-align: right; font-size: 11pt; color: var(--text-muted); line-height: 1.5;">
+                        Dubai, United Arab Emirates<br>
+                        Phone: +971 52 233 6150<br>
+                        Email: hmonowar668@gmail.com
+                    </td>
+                </tr>
+            </table>
+
+            <div style="font-size: 11pt; color: var(--text-muted); margin-bottom: 20px; font-weight: bold;">
+                Date: May 3, 2026
+            </div>
+
+            <div class="cl-recipient">
+                <strong>To:</strong><br>
+                The Hiring Manager<br>
+                <strong>dnata / The Emirates Group</strong><br>
+                Dubai, United Arab Emirates
+            </div>
+
+            <div class="cl-subject">
+                Subject: Application for Equipment Operator Position
+            </div>
+
+            <div class="cl-body">
+                <p>Dear Sir/Madam,</p>
+                <p>I am writing to formally express my strong interest in the Equipment Operator position at dnata. Having lived and worked in Dubai for over 15 years, I have built a dependable operational background with a steadfast commitment to safety, precision, and compliance in high-volume settings.</p>
+                <p>I hold a valid United Arab Emirates Light Motor Vehicle (LMV Manual Category 3) driving license, along with a SIRA Security Supervisor license. Throughout my career in airport logistics, loss prevention, and site supervision, I have gained extensive practice in operating heavy machinery, managing fleet patrol, and executing strict operational guidelines under pressure.</p>
+                <p>I pride myself on strong communication capabilities, collaborative teamwork, and an unwavering focus on safety standards. I am eager to leverage my operational experience to support dnata’s ground handling and logistics excellence within The Emirates Group.</p>
+                <p>Enclosed is my curriculum vitae for your detailed review. I would welcome the opportunity to attend an interview at your earliest convenience to discuss how my skill set aligns with your team's goals.</p>
+                <p>Thank you for your time, consideration, and consideration of my application.</p>
+            </div>
+
+            <div class="cl-signature">
+                Yours sincerely,<br>
+                <div class="cl-signature-name">Monowar Hossain</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 2: RESUME CV -->
+    <div class="page page-last">
+        <div class="header-bar"></div>
+        <table class="layout-table">
+            <tr>
+                <!-- SIDEBAR -->
+                <td class="sidebar">
+                    
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">Contact Info</div>
+                        <div class="contact-item">
+                            <strong>Location</strong>
+                            Eiffel 4, 101 Al Waha St, Al-Quoz-03, Dubai, UAE
+                        </div>
+                        <div class="contact-item">
+                            <strong>Phone</strong>
+                            +971 52 233 6150
+                        </div>
+                        <div class="contact-item">
+                            <strong>Email</strong>
+                            hmonowar668@gmail.com
+                        </div>
+                        <div class="contact-item">
+                            <strong>Nationality</strong>
+                            Bangladeshi
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">Licenses & Specs</div>
+                        <ul class="badge-list">
+                            <li><strong>UAE LMV Manual License</strong><br><span style="font-size: 10pt; opacity: 0.8;">License No: 4450317 (Cat 3)</span></li>
+                            <li><strong>SIRA License</strong><br><span style="font-size: 10pt; opacity: 0.8;">Security Supervisor</span></li>
+                            <li><strong>Experience</strong><br><span style="font-size: 10pt; opacity: 0.8;">15+ Years in Dubai, UAE</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">Core Skills</div>
+                        <ul class="badge-list">
+                            <li>Equipment & Fleet Operation</li>
+                            <li>Loss Prevention & Surveillance</li>
+                            <li>Microsoft Office Professional</li>
+                            <li>Safety & Risk Mitigation</li>
+                            <li>Multitasking & Team Leadership</li>
+                            <li>Customer Service Excellence</li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">Languages</div>
+                        <div class="lang-item"><span class="lang-name">English</span> — Professional</div>
+                        <div class="lang-item"><span class="lang-name">Hindi / Urdu</span> — Fluent</div>
+                        <div class="lang-item"><span class="lang-name">Bengali</span> — Native</div>
+                        <div class="lang-item"><span class="lang-name">Arabic</span> — Conversational</div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">Education</div>
+                        <div style="font-size: 11pt; color: var(--sidebar-text); font-weight: bold;">Secondary School Certificate</div>
+                        <div style="font-size: 10.5pt; color: var(--sidebar-muted);">SSC Board — Completed 1998</div>
+                        <div style="font-size: 11pt; color: var(--sidebar-text); font-weight: bold; margin-top: 8px;">MS Office Certification</div>
+                        <div style="font-size: 10.5pt; color: var(--sidebar-muted);">Oscar Cultural Institute, Dubai</div>
+                    </div>
+
+                </td>
+
+                <!-- MAIN CONTENT -->
+                <td class="main-content">
+                    
+                    <div class="name-title">
+                        <h1>Monowar Hossain</h1>
+                        <div class="subtitle">Equipment Operator & Operational Supervisor</div>
+                    </div>
+
+                    <div class="section-title">Executive Profile</div>
+                    <div class="profile-text">
+                        Seasoned operational specialist with over 15 years of continuous experience in Dubai, UAE. Proven background in logistics facility security, fleet operations, loss prevention, and equipment handling. Highly skilled in maintaining strict adherence to safety protocols, operational workflows, and environment health & safety guidelines. Seeking to leverage robust operational experience and valid UAE credentials within a fast-paced environment at dnata.
+                    </div>
+
+                    <div class="section-title">Work Experience</div>
+
+                    <div class="job-block">
+                        <table class="job-header-table">
+                            <tr>
+                                <td class="job-role">Security Officer & Site Supervisor</td>
+                                <td class="job-date">Oct 2021 – Present</td>
+                            </tr>
+                        </table>
+                        <div class="job-company">Amazon Logistics — Dubai, United Arab Emirates</div>
+                        <ul class="job-bullets">
+                            <li>Serve as frontline operational lead managing visitor access, logistics dispatch verification, and material orders.</li>
+                            <li>Partner closely with Loss Prevention Management utilizing physical surveillance equipment, access control systems, and data analytics.</li>
+                            <li>Conduct comprehensive incident investigations, loss mitigation protocols, and vendor fraud audits to safeguard facilities.</li>
+                            <li>Enforce Environmental, Health & Safety (EHS) policies across warehouse loading bays and active vehicle maneuver areas.</li>
+                        </ul>
+                    </div>
+
+                    <div class="job-block">
+                        <table class="job-header-table">
+                            <tr>
+                                <td class="job-role">Security Team Lead & Patrol Officer</td>
+                                <td class="job-date">Prior Operations</td>
+                            </tr>
+                        </table>
+                        <div class="job-company">Burj Khalifa, Victory Heights & Citymax Hotel — Dubai, UAE</div>
+                        <ul class="job-bullets">
+                            <li>Coordinated security patrols and emergency response procedures across premier landmark locations and hospitality venues.</li>
+                            <li>Managed crowd control, guest inquiries, and multi-department communications during high-traffic operational events.</li>
+                            <li>Executed hazard identification assessments, routine structural safety checks, and formal incident documentation.</li>
+                        </ul>
+                    </div>
+
+                    <div class="section-title" style="margin-top: 25px;">Key Competencies</div>
+                    <ul class="job-bullets" style="margin-left: 15px;">
+                        <li><strong>Equipment Handling & Fleet:</strong> Proficient in operating LMV vehicles, fleet inspection, and ground operational support machinery.</li>
+                        <li><strong>Safety Standards:</strong> Strict adherence to UAE regulatory standards (SIRA) and international corporate EHS procedures.</li>
+                        <li><strong>Administrative Proficiency:</strong> Digital logging, MS Office tools, identity verification, and reporting.</li>
+                    </ul>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Script to Handle Theme Toggle -->
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.removeAttribute('data-theme');
+            } else {
+                html.setAttribute('data-theme', 'dark');
+            }
+        }
+    </script>
+</body>
+</html>
