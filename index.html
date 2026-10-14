@@ -83,20 +83,16 @@
             gap: 25px;
         }
 
-        .profile-img-placeholder {
-            width: 100px;
-            height: 100px;
-            background-color: var(--primary-color);
-            color: #ffffff;
+        .profile-photo {
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            font-weight: bold;
-            margin: 0 auto 10px auto;
             object-fit: cover;
+            object-position: center top;
+            margin: 0 auto 10px auto;
+            display: block;
             border: 3px solid var(--primary-color);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
 
         aside h3 {
@@ -248,7 +244,7 @@
     <div class="container">
         <!-- SIDEBAR -->
         <aside>
-            <div class="profile-img-placeholder">MH</div>
+            <img src="https://drive.google.com/uc?export=view&id=1NkuHRzlArMCanYleD6vzMzXbfXfkTInJ" alt="Monowar Hossain" class="profile-photo">
             
             <div class="sidebar-section">
                 <h3>Contact</h3>
